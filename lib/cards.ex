@@ -48,11 +48,9 @@ defmodule Cards do
   loads the deck from the file system
   """
   def load(filename) do
-    {status, binary} = File.read(filename)
-
-    case status do
-      :ok -> :erlang.binary_to_term(binary)
-      :error -> 'That file does not exist'
+    case File.read(filename) do
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, _reason} -> 'That file does not exist'
     end
   end
 end
