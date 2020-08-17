@@ -16,7 +16,7 @@ defmodule Cards do
   end
 
   @doc """
-  Shuffles and returns a shuffled deck.
+    Shuffles and returns a shuffled deck.
   """
   def shuffle(deck) do
     Enum.shuffle(deck)
@@ -24,6 +24,12 @@ defmodule Cards do
 
   @doc """
   Returns true or false if a card exists in a deck
+
+  ## Examples
+        iex> deck = Cards.create_deck
+        iex> Cards.contains?(deck, "Ace of Spades")
+        true
+
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
@@ -35,10 +41,10 @@ defmodule Cards do
     be in the hand.
 
   ## Examples
-  iex> deck = Cards.create_deck
-  iex> {hand, deck} = Cards.deal(deck, 1)
-  iex> hand
-  ["Ace of Spades"]
+      iex> deck = Cards.create_deck
+      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
 
   """
   def deal(deck, hand_size) do
